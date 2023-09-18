@@ -56,7 +56,8 @@ def main():
         
         * TWY's playground app, which has more examples than
           differential equations, is given
-          [here](https://twy-playground.streamlit.app/)
+          [here](https://twy-playground.streamlit.app/). Some of the
+          contents are overlapped.
         """
     )
     st.write("")
