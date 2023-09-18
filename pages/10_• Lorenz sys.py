@@ -80,7 +80,7 @@ def run_lorenz():
     t_eval = np.linspace(t_start, t_end, no_steps)
     state_init = [1.0, 1.0, 1.0]  # Initial state
 
-    time_conv = 10 ** 3  # μsec
+    time_conv = 10 ** 3  # msec
 
     # Solve the differential equation
     try:
