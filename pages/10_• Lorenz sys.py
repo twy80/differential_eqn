@@ -53,7 +53,7 @@ def run_lorenz():
 
     rho_min, rho_init, rho_max = 1.0, 10.0, 30.0
     rho = st.slider(
-        label="",
+        label="Setting the parameter $\\rho$",
         min_value=rho_min, max_value=rho_max, value=rho_init,
         step=0.1, format="%.2f",
         label_visibility="collapsed"
@@ -115,7 +115,7 @@ def run_lorenz():
     st.write("##### Simulation Results")
 
     plot_opt = st.radio(
-        label="",
+        label="Simulation Results",
         options=("Time responses & Phase portrait", "Phase portrait only"),
         label_visibility="collapsed"
     )
