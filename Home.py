@@ -1,9 +1,8 @@
 import streamlit as st
+# import os
 
 
 def main():
-    import os
-
     page_title = "TWY's Page for Differential Equations"
     page_icon = "📚"
 
