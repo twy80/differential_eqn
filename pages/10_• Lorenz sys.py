@@ -71,9 +71,7 @@ def run_lorenz():
     )
     right.write("(both with the default settings)")
 
-    t_start = 0.0
-    t_end = 25.0
-    t_step = 0.01
+    t_start, t_end, t_step = 0.0, 25.0, 0.01
     no_steps = round((t_end - t_start) / t_step) + 1
 
     t_span = (t_start, t_end)

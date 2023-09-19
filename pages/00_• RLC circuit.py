@@ -129,9 +129,7 @@ def run_rlc():
         """
     )
 
-    t_start = 0.0
-    t_end = 10.0
-    t_step = 0.1
+    t_start, t_end, t_step = 0.0, 10.0, 0.1
     no_steps = round((t_end - t_start) / t_step) + 1
 
     t_span = (t_start, t_end)
