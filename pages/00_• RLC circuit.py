@@ -122,8 +122,10 @@ def run_rlc():
         """
         - :blue[odeint] and :blue[solve_ivp] are used with their
           default settings
-        - :blue[control] is a function from the control system library,
-          and can be used only for linear time invariant systems
+        - :blue[control] is not the name of a function, but
+          refers to the use of functions from the control system
+          library. It should be noted that these functions can
+          only be used for linear time-invariant systems.
         """
     )
 
