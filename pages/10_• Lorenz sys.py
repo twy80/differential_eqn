@@ -58,9 +58,7 @@ def run_lorenz():
         step=0.1, format="%.2f",
         label_visibility="collapsed"
     )
-
     sigma, beta = 10, 8/3.0
-    args = rho, sigma, beta
 
     st.write("")
     left, right = st.columns([1, 2])
@@ -77,6 +75,9 @@ def run_lorenz():
     t_span = (t_start, t_end)
     t_eval = np.linspace(t_start, t_end, no_steps)
     state_init = [1.0, 1.0, 1.0]  # Initial state
+
+    # Set the parameters for ODE
+    args = rho, sigma, beta
 
     time_conv = 10 ** 3  # msec
 
@@ -100,7 +101,7 @@ def run_lorenz():
             states = sol.y.T
             # Check to see if there are numerical problems
             if not sol.success:
-                print("\nNumerical problems arise.\n")
+                st.error("Numerical problems arise.", icon="🚨")
                 return
 
         comp_time = time_conv * (time.perf_counter() - start)

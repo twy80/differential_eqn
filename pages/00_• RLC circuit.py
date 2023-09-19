@@ -166,7 +166,7 @@ def run_rlc():
             states = sol.y.T
             # Check to see if there are numerical problems
             if not sol.success:
-                print("\nNumerical problems arise.\n")
+                st.error("Numerical problems arise.", icon="🚨")
                 return
         else:
             # Use the control system library
