@@ -1,4 +1,4 @@
-# [TWY's Page for Differential Equations](https://diff_eqn.streamlit.app/)
+# [TWY's Page for Differential Equations](https://diff-eqn.streamlit.app/)
 
 * Differential equations form a mathematical language that can
   accurately describe objects in the world that change over time.
