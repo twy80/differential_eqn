@@ -25,7 +25,7 @@ def run_lorenz():
     st.write("")
     st.write(
         """
-        #### Nonlinear Lorenz system
+        #### System equation
         
         >> ${\\displaystyle \\frac{dx}{dt} = \sigma (y - x)}$
         
