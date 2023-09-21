@@ -97,8 +97,8 @@ def run_lorenz():
                 return
         else:
             sol = solve_ivp(
-                lorenz_eqn, t_span, state_init,
-                t_eval=t_eval, args=args
+                lorenz_eqn, t_span, state_init, args=args,
+                t_eval=t_eval
             )
             states = sol.y
             times = sol.t
