@@ -24,7 +24,7 @@
     in biomolecular systems. This simulation involves a discontinuity
     in the internal receptor generation, which poses challenges
     when using the 'odeint' solver. In this case, 'ivp_solve'
-    wins. (To be added soon)
+    wins.
 
 * This is for my students in the 'Nonlinear Systems' course.
   All the scripts are written in python using the

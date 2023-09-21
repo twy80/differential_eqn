@@ -184,8 +184,8 @@ def run_rlc():
         f"""
         ##### Simulation Results
 
-        - :blue[Computation time]:  {comp_time:>.2f}μsec
-        - :blue[Computation error]:  {comp_err:>.2e}
+        - Computation time:  {comp_time:>.2f}μsec
+        - Computation error:  {comp_err:>.2e}
           (Difference between analytic and numerical solutions)
         """
     )

@@ -42,7 +42,7 @@ def main():
             in biomolecular systems. This simulation involves a discontinuity
             in the internal receptor generation, which poses challenges
             when using the 'odeint' solver. In this case, 'ivp_solve'
-            wins. (To be added soon)
+            wins.
     
         #### What TWY does
     
