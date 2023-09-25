@@ -38,6 +38,11 @@ def main():
             in this case as well. Numerical errors cannot be computed here
             as analytic solutions are not available.
 
+          - Simulation of the Van der Pol oscillator exhibiting limit cycles,
+            which are essentially nonlinear behavior. In other words, limit
+            cycles are robust oscillations that cannot be produced by
+            linear systems.
+
           - Simulation of ligand-receptor interactions, a common phenomenon
             in biomolecular systems. This simulation involves a discontinuity
             in the internal receptor generation, which poses challenges
