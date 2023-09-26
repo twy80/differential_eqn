@@ -40,7 +40,7 @@ def run_ligand_receptor_interactions():
         through complementary shapes and chemical properties, forming
         a stable complex. This binding initiates a cascade of events
         inside the cell, leading to a specific cellular response.
-        Note that discontinuities in the variable Q_R below may
+        Note that discontinuities in the variable $Q_R$ below may
         cause numerical problems for ODE solvers (Jongrae Kim,
         Dynamic System Modelling and Analysis with MATLAB and
         Python, Wiley).
