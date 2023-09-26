@@ -73,9 +73,21 @@ def analytic_sol_rlc_eqn(t_eval, x_init, *args):
 
 # Main function running simulations
 def run_rlc():
-    st.write("## :blue[Linear RLC Circuit]")
+    st.write(
+        """
+        ## :blue[Linear RLC Circuit]
 
-    st.write("")
+        As an example of a linear time-invariant system,
+        we consider the following second-order circuit. The analytic
+        solution is obtained using the sympy library and is used to
+        assess the accuracy of the ODE solvers employed here.
+        """
+    )
+    st.image(
+        "files/RLC_circuit.jpg",
+        caption="Image from http://goo.gl/r7DZBQ"
+    )
+
     st.write(
         """
         ##### System equation

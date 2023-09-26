@@ -28,9 +28,25 @@ def ligand_receptor_interaction(time, state, *args):
 
 
 def run_ligand_receptor_interactions():
-    st.write("## :blue[Ligand-Receptor Interactions]")
+    st.write(
+        """
+        ## :blue[Ligand-Receptor Interactions]
+        
+        Ligand-receptor interactions refer to the specific binding
+        between a ligand, which is typically a small molecule or ion,
+        and a receptor, which is typically a protein. This interaction
+        is crucial for various cellular processes, including signal
+        transduction and cell communication. Ligands bind to receptors
+        through complementary shapes and chemical properties, forming
+        a stable complex. This binding initiates a cascade of events
+        inside the cell, leading to a specific cellular response.
+        Note that discontinuities in the variable Q_R below may
+        cause numerical problems for ODE solvers (Jongrae Kim,
+        Dynamic System Modelling and Analysis with MATLAB and
+        Python, Wiley).
+        """
+    )
 
-    st.write("")
     st.write(
         """
         #### System equation

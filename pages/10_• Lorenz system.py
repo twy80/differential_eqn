@@ -20,9 +20,21 @@ def lorenz_eqn(time, state, *args):
 
 
 def run_lorenz():
-    st.write("## :blue[Nonlinear Lorenz System]")
+    st.write(
+        """
+        ## :blue[Nonlinear Lorenz System]
 
-    st.write("")
+        The Lorenz equation is a mathematical model that describes
+        the chaotic behavior of a system, such as atmospheric
+        convection. It consists of three nonlinear differential
+        equations that represent the evolution of temperature and
+        fluid flow. The equation is highly sensitive to initial
+        conditions, resulting in the butterfly effect, where small
+        changes can lead to significant differences in the system's
+        behavior.
+        """
+    )
+
     st.write(
         """
         #### System equation
@@ -134,9 +146,10 @@ def run_lorenz():
         for k in range(3):
             ax1[k] = plt.subplot2grid((3, 2),  (k, 0), fig=fig)
             ax1[k].plot(times, states[k], color=colors[k], alpha=0.8)
-            ax1[k].set_xlabel('Time')
             ax1[k].set_ylabel(state_variables[k])
         ax1[0].set_title("Time responses")
+        ax1[2].set_xlabel('Time')
+
         ax2 = plt.subplot2grid((3, 2), (0, 1), projection="3d", rowspan=3, fig=fig)
         ax2.set_title("Phase portrait")
     else:

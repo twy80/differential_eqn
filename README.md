@@ -20,13 +20,18 @@
     in this case as well. Numerical errors cannot be computed here
     as analytic solutions are not available.
 
+  - Simulation of the Van der Pol oscillator exhibiting limit cycles,
+    which are essentially nonlinear behavior. In other words, limit
+    cycles are robust oscillations that cannot be produced by
+    linear systems.
+
   - Simulation of ligand-receptor interactions, a common phenomenon
     in biomolecular systems. This simulation involves a discontinuity
     in the internal receptor generation, which poses challenges
     when using the 'odeint' solver. In this case, 'ivp_solve'
     wins.
 
-* This is for my students in the 'Nonlinear Systems' course.
+* This is for my students in the courses on systems theory.
   All the scripts are written in python using the
   Streamlit framework.
 

@@ -18,9 +18,19 @@ def lorenz_eqn(time, state, epsilon):
 
 
 def run_lorenz():
-    st.write("## :blue[Van der Pol Oscillator]")
+    st.write(
+        """
+        ## :blue[Van der Pol Oscillator]
 
-    st.write("")
+        The van der Pol oscillator is given by a second-order nonlinear differential
+        equation. When its parameter (ε below) is within a certain range,
+        the oscillator settles into a stable limit cycle, sustaining oscillations
+        with a consistent amplitude and frequency. This makes it a useful tool for
+        understanding various phenomena, including electronic circuits, cardiac
+        cells, and neural synchronization in the brain.
+        """
+    )
+
     st.write(
         """
         #### System equation
@@ -28,7 +38,7 @@ def run_lorenz():
         >> ${\\displaystyle \\frac{dx_1}{dt} = x_2}$
         
         >> ${\\displaystyle \\frac{dx_2}{dt} = -x_1 + \\varepsilon
-           (1 - x_1^2)x_2}$        
+           (1 - x_1^2)x_2}$
         """
     )
 
@@ -121,16 +131,16 @@ def run_lorenz():
 
     fig = plt.figure()
     if plot_opt == "Time responses & Phase portrait":
-        state_variables = "$x(t)$", "$y(t)$"
+        state_variables = "$x_1(t)$", "$x_2(t)$"
         colors = "k", "b"
         ax1 = 2 * [None]
 
         for k in range(2):
             ax1[k] = plt.subplot2grid((2, 2),  (k, 0), fig=fig)
             ax1[k].plot(times, states[k], color=colors[k], alpha=0.8)
-            ax1[k].set_xlabel('Time')
             ax1[k].set_ylabel(state_variables[k])
         ax1[0].set_title("Time responses")
+        ax1[1].set_xlabel('Time')
 
         ax2 = plt.subplot2grid((2, 2), (0, 1), rowspan=2, fig=fig)
         ax2.set_title("Phase portrait")
@@ -140,8 +150,7 @@ def run_lorenz():
     ax2.plot(states[0, 0], states[1, 0], "o")
     ax2.plot(states[0], states[1], color="r", alpha=0.5)
     ax2.set_aspect('equal', 'box')
-    ax2.set_xlabel('$x_1$')
-    ax2.set_ylabel('$x_2$')
+    ax2.set_xlabel('$x_1-x_2$ plane')
 
     st.pyplot(fig)
 
