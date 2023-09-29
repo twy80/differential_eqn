@@ -8,6 +8,7 @@ from scipy.integrate import odeint, solve_ivp  # ODE solvers
 import sympy
 import control as ct
 import streamlit as st
+from files.present_results import present_results
 import time
 
 
@@ -154,7 +155,7 @@ def run_rlc():
 
     # Analytic solutions
     analytic_sol = analytic_sol_rlc_eqn(t_eval, state_init, *args)
-    analytic_sol_eval = np.array(analytic_sol).T
+    analytic_sol_eval = np.array(analytic_sol)
 
     time_conv = 10 ** 6  # μsec
 
@@ -166,6 +167,7 @@ def run_rlc():
                 rlc_eqn, state_init, t_eval, args,
                 tfirst=True, full_output=True,
             )
+            states = states.T
             # Check to see if there are numerical problems
             if infodict["message"] != "Integration successful.":
                 st.error("Numerical problems arise.", icon="🚨")
@@ -175,14 +177,14 @@ def run_rlc():
                 rlc_eqn, t_span, state_init,
                 t_eval=t_eval, args=args
             )
-            states = sol.y.T
+            states = sol.y
             # Check to see if there are numerical problems
             if not sol.success:
                 st.error("Numerical problems arise.", icon="🚨")
                 return
         else:
             # Use the control system library
-            states = sol_rlc_eqn_control(t_eval, state_init, *args)
+            states = sol_rlc_eqn_control(t_eval, state_init, *args).T
 
         comp_time = time_conv * (time.perf_counter() - start)
         comp_err = np.linalg.norm(analytic_sol_eval - states)
@@ -192,24 +194,37 @@ def run_rlc():
         return
 
     st.write("")
+    st.write("##### Simulation Results")
+
+    plot_opt = st.radio(
+        label="Simulation Results",
+        options=("Time responses", "Phase portrait", "Both"),
+        horizontal=True,
+        index=2,
+        label_visibility="collapsed"
+    )
+
     st.write(
         f"""
-        ##### Simulation Results
-
         - Computation time:  {comp_time:>.2f}μsec
         - Computation error:  {comp_err:>.2e}
           (Difference between analytic and numerical solutions)
         """
     )
-    plt.rcParams.update({'font.size': 7})
+    st.write("")
 
-    fig, ax = plt.subplots()
-    ax.set_title("Capacitor voltage and current")
-    ax.set_xlabel("Time")
-    ax.plot(t_eval, states[:,0], label='Voltage')
-    ax.plot(t_eval, states[:,1], label='Current')
-    ax.legend(loc='best')
-    st.pyplot(fig)  # Plot the results
+    fig, _, ax_phase = present_results(
+        t_eval, states, ["$v_C(t)$", "$i(t)$"], plot_opt
+    )
+    if fig:
+        if ax_phase:
+            ax_phase.set_xlabel('$v_C-i$ plane')
+        st.pyplot(fig)
+    else:
+        st.error(
+            f"An error occurred while obtaining the figure object: {e}",
+            icon="🚨"
+        )
 
 
 if __name__ == "__main__":

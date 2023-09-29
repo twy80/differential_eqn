@@ -6,6 +6,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy.integrate import odeint, solve_ivp
 import streamlit as st
+from files.present_results import present_results
 import time
 
 
@@ -130,41 +131,32 @@ def run_lorenz():
 
     plot_opt = st.radio(
         label="Simulation Results",
-        options=("Time responses & Phase portrait", "Phase portrait only"),
+        options=("Time responses", "Phase portrait", "Both"),
+        horizontal=True,
+        index=2,
         label_visibility="collapsed"
     )
 
     st.write(f"- Computation time:  {comp_time:>.2f}msec")
-    plt.rcParams.update({'font.size': 7})
+    st.write("")
 
-    fig = plt.figure()
-    if plot_opt == "Time responses & Phase portrait":
-        state_variables = "$x(t)$", "$y(t)$", "$z(t)$"
-        colors = "k", "b", "g"
-        ax1 = 3 * [None]
-
-        for k in range(3):
-            ax1[k] = plt.subplot2grid((3, 2),  (k, 0), fig=fig)
-            ax1[k].plot(times, states[k], color=colors[k], alpha=0.8)
-            ax1[k].set_ylabel(state_variables[k])
-        ax1[0].set_title("Time responses")
-        ax1[2].set_xlabel('Time')
-
-        ax2 = plt.subplot2grid((3, 2), (0, 1), projection="3d", rowspan=3, fig=fig)
-        ax2.set_title("Phase portrait")
+    fig, _, ax_phase = present_results(
+        times, states, ["$x(t)$", "$y(t)$", "z(t)"], plot_opt
+    )
+    if fig:
+        if ax_phase:
+            ax_phase.set_xlabel('$x$')
+            ax_phase.set_ylabel('$y$')
+            ax_phase.set_zlabel('$z$')
+            ax_phase.set_xticks([-20, -10, 0, 10, 20])
+            ax_phase.set_yticks([-20, -10, 0, 10, 20])
+            ax_phase.set_zticks([0, 10, 20, 30, 40])
+        st.pyplot(fig)
     else:
-        ax2 = fig.add_subplot(111, projection='3d')
-
-    ax2.plot(states[0, 0], states[1, 0], states[2, 0], "o")
-    ax2.plot(states[0], states[1], states[2], color="r", alpha=0.5)
-    ax2.set_xlabel('$x$')
-    ax2.set_ylabel('$y$')
-    ax2.set_zlabel('$z$')
-    ax2.set_xticks([-20, -10, 0, 10, 20])
-    ax2.set_yticks([-20, -10, 0, 10, 20])
-    ax2.set_zticks([0, 10, 20, 30, 40])
-
-    st.pyplot(fig)
+        st.error(
+            f"An error occurred while obtaining the figure object: {e}",
+            icon="🚨"
+        )
 
 
 if __name__ == "__main__":

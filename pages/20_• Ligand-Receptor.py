@@ -3,11 +3,11 @@ Simulation of the Ligand-Receptor Interacions
 by T.-W. Yoon, Sep. 2023
 """
 
-
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.integrate import odeint, solve_ivp
 import streamlit as st
+from files.present_results import present_results
 import time
 
 
@@ -138,28 +138,36 @@ def run_ligand_receptor_interactions():
         return
 
     st.write("")
-    st.write(
-        f"""
-        ##### Simulation Results
+    st.write("##### Simulation Results")
 
-        - Computation time:  {comp_time:>.2f}msec
-        """
+    plot_opt = st.radio(
+        label="Simulation Results",
+        options=("Time responses", "Phase portrait", "Both"),
+        horizontal=True,
+        index=2,
+        label_visibility="collapsed"
     )
-    plt.rcParams.update({'font.size': 7})
 
-    fig, ax = plt.subplots(3, 1, sharex=True)
-    ax[0].plot(times, states[0])
-    ax[0].set_ylabel('Receptor [nM]')
+    st.write(f"- Computation time:  {comp_time:>.2f}msec")
+    st.write("")
 
-    ax[1].plot(times, states[1])
-    ax[1].set_ylabel('Ligand [nM]')
-
-    ax[2].plot(times, states[2])
-    ax[2].set_ylabel('Complex [nM]')
-    ax[2].set_xlabel('time [min]')
-    ax[2].axis([0, t_end, 0, 0.004])
-
-    st.pyplot(fig)
+    fig, _, ax_phase = present_results(
+        times, states, ["Receptor", "Ligand", "Complex"], plot_opt
+    )
+    if fig:
+        if ax_phase:
+            ax_phase.set_xlabel("Receptor")
+            ax_phase.set_ylabel("Ligand")
+            ax_phase.set_zlabel("Complex")
+            ax_phase.set_xticks([0, 0.1, 0.2, 0.3, 0.4])
+            ax_phase.set_yticks([0, 0.01, 0.02, 0.03, 0.04])
+            ax_phase.set_zticks([0, 0.001, 0.002, 0.003, 0.004])
+        st.pyplot(fig)
+    else:
+        st.error(
+            f"An error occurred while obtaining the figure object: {e}",
+            icon="🚨"
+        )
 
 
 if __name__ == "__main__":

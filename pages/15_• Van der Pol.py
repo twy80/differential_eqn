@@ -6,6 +6,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy.integrate import odeint, solve_ivp
 import streamlit as st
+from files.present_results import present_results
 import time
 
 
@@ -17,7 +18,7 @@ def lorenz_eqn(time, state, epsilon):
     ]
 
 
-def run_lorenz():
+def run_van_der_pol():
     st.write(
         """
         ## :blue[Van der Pol Oscillator]
@@ -122,38 +123,28 @@ def run_lorenz():
 
     plot_opt = st.radio(
         label="Simulation Results",
-        options=("Time responses & Phase portrait", "Phase portrait only"),
+        options=("Time responses", "Phase portrait", "Both"),
+        horizontal=True,
+        index=2,
         label_visibility="collapsed"
     )
 
     st.write(f"- Computation time:  {comp_time:>.2f}msec")
-    plt.rcParams.update({'font.size': 7})
+    st.write("")
 
-    fig = plt.figure()
-    if plot_opt == "Time responses & Phase portrait":
-        state_variables = "$x_1(t)$", "$x_2(t)$"
-        colors = "k", "b"
-        ax1 = 2 * [None]
-
-        for k in range(2):
-            ax1[k] = plt.subplot2grid((2, 2),  (k, 0), fig=fig)
-            ax1[k].plot(times, states[k], color=colors[k], alpha=0.8)
-            ax1[k].set_ylabel(state_variables[k])
-        ax1[0].set_title("Time responses")
-        ax1[1].set_xlabel('Time')
-
-        ax2 = plt.subplot2grid((2, 2), (0, 1), rowspan=2, fig=fig)
-        ax2.set_title("Phase portrait")
+    fig, _, ax_phase = present_results(
+        times, states, ["$x_1(t)$", "$x_2(t)$"], plot_opt
+    )
+    if fig:
+        if ax_phase:
+            ax_phase.set_aspect('equal', 'box')
+            ax_phase.set_xlabel('$x_1-x_2$ plane')
+        st.pyplot(fig)
     else:
-        ax2 = fig.add_subplot(111)
-
-    ax2.plot(states[0, 0], states[1, 0], "o")
-    ax2.plot(states[0], states[1], color="r", alpha=0.5)
-    ax2.set_aspect('equal', 'box')
-    ax2.set_xlabel('$x_1-x_2$ plane')
-
-    st.pyplot(fig)
-
+        st.error(
+            f"An error occurred while obtaining the figure object: {e}",
+            icon="🚨"
+        )
 
 if __name__ == "__main__":
-    run_lorenz()
+    run_van_der_pol()
