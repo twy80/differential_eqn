@@ -209,6 +209,7 @@ def run_rlc():
         - Computation time:  {comp_time:>.2f}μsec
         - Computation error:  {comp_err:>.2e}
           (Difference between analytic and numerical solutions)
+        - Point of attention: linearity, effectiveness of :blue[odeint]
         """
     )
     st.write("")

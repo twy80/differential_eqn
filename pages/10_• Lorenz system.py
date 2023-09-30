@@ -137,7 +137,12 @@ def run_lorenz():
         label_visibility="collapsed"
     )
 
-    st.write(f"- Computation time:  {comp_time:>.2f}msec")
+    st.write(
+        f"""
+        - Computation time:  {comp_time:>.2f}msec
+        - Point of attention: nonlinearity, chaotic behavor
+        """
+    )
     st.write("")
 
     fig, _, ax_phase = present_results(

@@ -148,7 +148,13 @@ def run_ligand_receptor_interactions():
         label_visibility="collapsed"
     )
 
-    st.write(f"- Computation time:  {comp_time:>.2f}msec")
+    st.write(
+        f"""
+        - Computation time:  {comp_time:>.2f}msec
+        - Point of attention: parametric discontinuity,
+          effectiveness of :blue[solve_ivp]
+        """
+    )
     st.write("")
 
     fig, _, ax_phase = present_results(

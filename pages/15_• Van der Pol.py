@@ -129,7 +129,12 @@ def run_van_der_pol():
         label_visibility="collapsed"
     )
 
-    st.write(f"- Computation time:  {comp_time:>.2f}msec")
+    st.write(
+        f"""
+        - Computation time:  {comp_time:>.2f}msec
+        - Point of attention: nonlinearity, existence of limit cycles
+        """
+    )
     st.write("")
 
     fig, _, ax_phase = present_results(
