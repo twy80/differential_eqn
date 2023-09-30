@@ -30,7 +30,7 @@ def main():
           Examples presented here are as follows:
 
           - Simulation of a linear RLC circuit, comparing the performance
-            of the 'odeint' and 'solve_ivp' solvers. With the default
+            of the two solvers. With the default
             settings in both solvers, 'odeint' demonstrates faster
             execution time and better accuracy. Therefore, 'odeint'
             wins in this scenario. (A solver from the control system
