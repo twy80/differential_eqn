@@ -21,8 +21,13 @@ def main():
         * Differential equations form a mathematical language that can
           accurately describe objects in the world that change over time.
           Proficiency in dealing with differential equations is therefore
-          vital for systems science and engineering. Several examples are
-          presented below:
+          vital for systems science and engineering. Two solvers are
+          considered: 'odeint' and 'solve_ivp'. 'odeint' is a Python
+          wrapper for the FORTRAN library function LSODA, while 'solve_ivp'
+          provides more than just LSODA and is generally preferred.
+          The default method for 'solve_ivp' is 'RK45'.
+          
+          Examples presented here are as follows:
 
           - Simulation of a linear RLC circuit, comparing the performance
             of the 'odeint' and 'solve_ivp' solvers. With the default
