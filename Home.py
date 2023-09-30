@@ -54,7 +54,7 @@ def main():
         * TWY teaches engineering mathematics, signals and systems,
           technical writing, etc., at Korea University.
 
-        * This is for my students in the 'Nonlinear Systems' course.
+        * This is for my students in the courses on systems theory.
           All the scripts are written in python using the
           Streamlit framework.
         
