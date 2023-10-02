@@ -36,10 +36,10 @@
 
 * This is for my students in the courses on systems theory.
   All the scripts are written in python using the
-  Streamlit framework.
-  See [TWY's playground app](https://twy-playground.streamlit.app/)
-  for more examples than differential equations. (Some of the
-  contents are overlapped.)
+  Streamlit framework. You can find more examples than just
+  differential equations on
+  [TWY's playground app](https://twy-playground.streamlit.app/).
+  (Some of the contents are overlapped.)
 
 * TWY teaches engineering mathematics, signals and systems,
   technical writing, etc., at Korea University.
