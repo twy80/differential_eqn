@@ -12,7 +12,7 @@ def main():
         layout="centered"
     )
 
-    st.write(f"## :blue[{page_title}]")
+    st.write(f"## {page_icon} {page_title}")
 
     st.write(
         """
