@@ -71,10 +71,10 @@ def run_predict_cycles():
     # Set the initial state
     left, right = st.columns(2)
     x1_init = left.number_input(
-        label="$x_1(0)$", min_value=-5.0, max_value=5.0, value=1.0, step=0.01, format="%.2f"
+        label="$x_1(0)$", min_value=-5.0, max_value=0.2, value=1.0, step=0.01, format="%.2f"
     )
     x2_init = right.number_input(
-        label="$x_2(0)$", min_value=-5.0, max_value=5.0, value=1.0, step=0.01, format="%.2f"
+        label="$x_2(0)$", min_value=-5.0, max_value=-0.2, value=1.0, step=0.01, format="%.2f"
     )
 
     st.write("")
