@@ -1,5 +1,6 @@
 """
-Simulation of the Lorenz system by T.-W. Yoon, Sep. 2023
+Simulation of the van der Pol oscillator
+by T.-W. Yoon, Sep. 2023
 """
 
 import numpy as np

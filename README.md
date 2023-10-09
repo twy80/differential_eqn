@@ -28,6 +28,10 @@
     cycles are robust oscillations that cannot be produced by
     linear systems.
 
+  - Simulation of a second-order nonlinear system for which the
+    presence of a limit cycle can be predicted using the
+    Poincare-Bendixson criterion.
+
   - Simulation of ligand-receptor interactions, a common phenomenon
     in biomolecular systems. This simulation involves a discontinuity
     in the internal receptor generation, which poses challenges
