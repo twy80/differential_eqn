@@ -143,10 +143,9 @@ def run_rlc():
     )
 
     t_start, t_end, t_step = 0.0, 10.0, 0.1
-    no_steps = round((t_end - t_start) / t_step) + 1
 
     t_span = (t_start, t_end)
-    t_eval = np.linspace(t_start, t_end, no_steps)
+    t_eval = np.arange(t_start, t_end + t_step, t_step)
     state_init = [vc_init, i_init]  # Initial state
 
     # Setting the R, L & C values
