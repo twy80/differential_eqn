@@ -151,8 +151,12 @@ def run_predict_cycles():
     )
     if fig:
         if ax_phase:
+            r = np.sqrt(1.5)
+            theta = np.linspace(0, 2 * np.pi, 100)
+            x1, x2 = r * np.cos(theta), r * np.sin(theta)
+            ax_phase.plot(x1, x2, linestyle='dotted', color='black')
             ax_phase.set_aspect('equal', 'box')
-            ax_phase.set_xlabel('$x_1-x_2$ plane')
+            ax_phase.set_xlabel('$x_1-x_2$ plane ($\cdots\, x^2 + y^2 = 1.5$)')
         st.pyplot(fig)
     else:
         st.error(
