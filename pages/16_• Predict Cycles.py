@@ -36,7 +36,8 @@ def run_predict_cycles():
         point. In this case, $M$ is proven to contain a periodic solution
         because every trajectory starting from a point in $M$ remains within
         $M$ and is not attracted to any equilibrium point. This condition
-        is known as the Poincare-Bendixson criterion.
+        is known as the Poincare-Bendixson criterion
+        (H. K. Khalil, Nonlinear Systems, Prentice Hall).
 
         The nonlinear system given below is guaranteed to have a limit cycle
         within the set
