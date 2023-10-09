@@ -83,10 +83,9 @@ def run_lorenz():
     right.write("(both with the default settings)")
 
     t_start, t_end, t_step = 0.0, 25.0, 0.01
-    no_steps = round((t_end - t_start) / t_step) + 1
 
     t_span = (t_start, t_end)
-    t_eval = np.linspace(t_start, t_end, no_steps)
+    t_eval = np.arange(t_start, t_end + t_step, t_step)
     state_init = [1.0, 1.0, 1.0]  # Initial state
 
     # Set the parameters for ODE
