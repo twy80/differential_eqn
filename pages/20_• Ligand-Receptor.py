@@ -49,7 +49,7 @@ def run_ligand_receptor_interactions():
 
     st.write(
         """
-        #### System equation
+        ##### System equation
         
         >> ${\\displaystyle \\frac{dR}{dt}
            \,\! = -k_{on} R L + k_{of\!f}C - k_t R + Q_R}$

@@ -35,7 +35,7 @@ def run_van_der_pol():
 
     st.write(
         """
-        #### System equation
+        ##### System equation
         
         >> ${\\displaystyle \\frac{dx_1}{dt} = x_2}$
         

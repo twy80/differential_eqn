@@ -55,7 +55,7 @@ def run_predict_cycles():
 
     st.write(
         """
-        #### System equation
+        ##### System equation
 
         >> ${\\displaystyle \\frac{dx_1}{dt} = f_1(x_1, x_2)
         = x_1 + x_2  - x_1 (x_1^2 + x_2^2)}$

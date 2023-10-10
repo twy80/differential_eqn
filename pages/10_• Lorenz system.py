@@ -38,7 +38,7 @@ def run_lorenz():
 
     st.write(
         """
-        #### System equation
+        ##### System equation
         
         >> ${\\displaystyle \\frac{dx}{dt} = \sigma (y - x)}$
         
