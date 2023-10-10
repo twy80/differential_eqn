@@ -60,10 +60,10 @@ def run_van_der_pol():
     # Set the initial state
     left, right = st.columns(2)
     x1_init = left.number_input(
-        label="$x_1(0)$", min_value=-5.0, max_value=5.0, value=1.0, step=0.01, format="%.2f"
+        label="$x_1(0) \in [-5, 5]$", min_value=-5.0, max_value=5.0, value=1.0, step=0.01, format="%.2f"
     )
     x2_init = right.number_input(
-        label="$x_2(0)$", min_value=-5.0, max_value=5.0, value=0.0, step=0.01, format="%.2f"
+        label="$x_2(0) \in [-5, 5]$", min_value=-5.0, max_value=5.0, value=0.0, step=0.01, format="%.2f"
     )
 
     st.write("")
@@ -76,10 +76,9 @@ def run_van_der_pol():
     right.write("(both with the default settings)")
 
     t_start, t_end, t_step = 0.0, 50.0, 0.01
-    no_steps = round((t_end - t_start) / t_step) + 1
 
     t_span = (t_start, t_end)
-    t_eval = np.linspace(t_start, t_end, no_steps)
+    t_eval = np.arange(t_start, t_end + t_step, t_step)
     state_init = [x1_init, x2_init]  # Initial state
 
     # Set the parameters for ODE
