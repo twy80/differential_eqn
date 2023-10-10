@@ -33,6 +33,7 @@ def run_van_der_pol():
         """
     )
 
+    st.write("")
     st.write(
         """
         ##### System equation

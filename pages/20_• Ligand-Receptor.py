@@ -47,6 +47,7 @@ def run_ligand_receptor_interactions():
         """
     )
 
+    st.write("")
     st.write(
         """
         ##### System equation
@@ -63,7 +64,7 @@ def run_ligand_receptor_interactions():
         > where
 
         >> ${\displaystyle \,Q_R = \left\{\\begin{array}{rc}0.0166, &
-        R \le R_{\max} \\\ 0, & R > R_{\max} \end{array}\\right.}$
+           R \le R_{\max} \\\ 0, & R > R_{\max} \end{array}\\right.}$
         """
     )
 

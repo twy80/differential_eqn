@@ -36,6 +36,7 @@ def run_lorenz():
         """
     )
 
+    st.write("")
     st.write(
         """
         ##### System equation

@@ -42,17 +42,18 @@ def run_predict_cycles():
         The nonlinear system given below is guaranteed to have a limit cycle
         within the set
 
-        >> $M = \{x\,|\, V(x_1, x_2) = x_1^2 + x_2^2 \le c\}\,$
+        >> $M = \{(x_1, x_2)\,|\, V(x_1, x_2) = x_1^2 + x_2^2 \le c\}\,$
            where $\,c \ge 1.5$.
 
         This is because the vector field $[f_1, f_2]^T$ points into $M$
         on the surface $V(x_1, x_2) = c,\,$ which can be shown as follows:
 
         >> $\\frac{\partial V}{\partial x_1} f_1 +
-        \\frac{\partial V}{\partial x_2} f_2 = 3c - 2c^2 \le 0$.
+           \\frac{\partial V}{\partial x_2} f_2 = 3c - 2c^2 \le 0$.
         """
     )
 
+    st.write("")
     st.write(
         """
         ##### System equation
