@@ -65,7 +65,7 @@ def run_lorenz():
     st.write("##### Setting the parameter $\\rho$")
     st.write("")
 
-    rho_min, rho_init, rho_max = 1.0, 10.0, 30.0
+    rho_min, rho_init, rho_max = 0.1, 10.0, 30.0
     rho = st.slider(
         label="Setting the parameter $\\rho$",
         min_value=rho_min, max_value=rho_max, value=rho_init,
