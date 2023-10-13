@@ -133,7 +133,7 @@ def run_van_der_pol():
     st.write(
         f"""
         - Computation time:  {comp_time:>.2f}msec
-        - Point of attention: nonlinearity, existence of limit cycles
+        - Point of attention: existence of limit cycles
         """
     )
     st.write("")

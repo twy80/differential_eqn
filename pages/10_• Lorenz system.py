@@ -140,7 +140,7 @@ def run_lorenz():
     st.write(
         f"""
         - Computation time:  {comp_time:>.2f}msec
-        - Point of attention: nonlinearity, chaotic behavor
+        - Point of attention: bifurcation, chaotic behavor
         """
     )
     st.write("")

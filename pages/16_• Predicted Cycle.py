@@ -143,7 +143,8 @@ def run_predict_cycles():
     st.write(
         f"""
         - Computation time:  {comp_time:>.2f}msec
-        - Point of attention: nonlinearity, existence of limit cycles
+        - Point of attention:
+          predicting the existence of limit cycles
         """
     )
     st.write("")
