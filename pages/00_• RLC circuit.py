@@ -103,15 +103,16 @@ def run_rlc():
     st.write("")
     st.write("##### Setting the parameters")
     st.write("")
-    resistor = st.slider(
+    c1, c2, c3 = st.columns(3)
+    resistor = c1.slider(
         label="Resistence $\,R$",
         min_value=0.1, max_value=5.0, value=1.0, step=0.1, format="%.1f"
     )
-    inductor = st.slider(
+    inductor = c2.slider(
         label="Inductance $\,L$",
         min_value=0.1, max_value=5.0, value=1.0, step=0.1, format="%.1f"
     )
-    capacitor = st.slider(
+    capacitor = c3.slider(
         label="Capacitance $\,C$",
         min_value=0.1, max_value=5.0, value=1.0, step=0.1, format="%.1f"
     )
