@@ -96,9 +96,6 @@ def main():
     c2.info('**[Youtube](https://www.youtube.com/@twy80)**', icon="📺")
     c3.info('**[GitHub](https://github.com/twy80)**', icon="💻")
 
-    # if st.button("Finish"):
-    #     os._exit(0)
-
 
 if __name__ == "__main__":
     main()
