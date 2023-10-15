@@ -157,25 +157,28 @@ def run_predict_cycles():
         times, states, ["$x_1(t)$", "$x_2(t)$"], plot_opt
     )
     if ax_phase:
+        # Add the vector fields in the state space
         x_min, x_max = ax_phase.get_xlim()[0], ax_phase.get_xlim()[1]
         y_min, y_max = ax_phase.get_ylim()[0], ax_phase.get_ylim()[1]
 
         intervals = [x_max - x_min, y_max - y_min]
-
         min_number = min(intervals)
         min_index = intervals.index(min_number)
-        max_index = 1 - min_index
+        delta = (intervals[1 - min_index] - min_number) / 2
+        no_axis_data = 10
 
-        no_data_min = 10
-        no_data_max = round(no_data_min * intervals[max_index] / min_number)
-
+        # Prepare a square box for the phase portrait and vector fields
         if min_index == 0:
-            no_data_x, no_data_y = no_data_min, no_data_max
+            x_min -= delta
+            x_max += delta
+            ax_phase.set_xlim(x_min, x_max)
         else:
-            no_data_x, no_data_y = no_data_max, no_data_min
+            y_min -= delta
+            y_max += delta
+            ax_phase.set_ylim(y_min, y_max)
 
-        x_axis = np.linspace(x_min, x_max, no_data_x + 1)
-        y_axis = np.linspace(y_min, y_max, no_data_y + 1)
+        x_axis = np.linspace(x_min, x_max, no_axis_data)
+        y_axis = np.linspace(y_min, y_max, no_axis_data)
         x_data, y_data = np.meshgrid(x_axis, y_axis)
         x_prime, y_prime = limit_cycle_eqn(None, [x_data, y_data])
         ax_phase.quiver(x_data, y_data, x_prime, y_prime, color='y')

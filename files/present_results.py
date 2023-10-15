@@ -87,7 +87,7 @@ def present_results(times, states, state_variable_names, plot_opt):
     if ax_phase:
         if state_dim == 2:
             ax_phase.plot(states[0, 0], states[1, 0], "o")
-            ax_phase.plot(states[0], states[1], color="r", alpha=0.5)
+            ax_phase.plot(states[0], states[1], color="r", alpha=0.8)
         else:
             ax_phase.plot(states[0, 0], states[1, 0], states[2, 0], "o")
             ax_phase.plot(states[0], states[1], states[2], color="r", alpha=0.5)
