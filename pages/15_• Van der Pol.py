@@ -160,11 +160,11 @@ def run_van_der_pol():
         if min_index == 0:
             x_min -= delta
             x_max += delta
-            ax_phase.set_xlim(x_min, x_max)
         else:
             y_min -= delta
             y_max += delta
-            ax_phase.set_ylim(y_min, y_max)
+        ax_phase.set_xlim(x_min, x_max)
+        ax_phase.set_ylim(y_min, y_max)
 
         x_axis = np.linspace(x_min, x_max, no_axis_data)
         y_axis = np.linspace(y_min, y_max, no_axis_data)

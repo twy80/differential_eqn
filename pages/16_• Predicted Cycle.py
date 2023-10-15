@@ -157,6 +157,12 @@ def run_predict_cycles():
         times, states, ["$x_1(t)$", "$x_2(t)$"], plot_opt
     )
     if ax_phase:
+        # Draw a circle within which the limit cycle lies
+        r = np.sqrt(1.5)
+        theta = np.linspace(0, 2 * np.pi, 100)
+        x1, x2 = r * np.cos(theta), r * np.sin(theta)
+        ax_phase.plot(x1, x2, linestyle='dotted', color='black')
+
         # Add the vector fields in the state space
         x_min, x_max = ax_phase.get_xlim()[0], ax_phase.get_xlim()[1]
         y_min, y_max = ax_phase.get_ylim()[0], ax_phase.get_ylim()[1]
@@ -171,11 +177,11 @@ def run_predict_cycles():
         if min_index == 0:
             x_min -= delta
             x_max += delta
-            ax_phase.set_xlim(x_min, x_max)
         else:
             y_min -= delta
             y_max += delta
-            ax_phase.set_ylim(y_min, y_max)
+        ax_phase.set_xlim(x_min, x_max)
+        ax_phase.set_ylim(y_min, y_max)
 
         x_axis = np.linspace(x_min, x_max, no_axis_data)
         y_axis = np.linspace(y_min, y_max, no_axis_data)
@@ -184,10 +190,6 @@ def run_predict_cycles():
         ax_phase.quiver(x_data, y_data, x_prime, y_prime, color='y')
         # ax_phase.streamplot(x_data, y_data, x_prime, y_prime, color='y')
 
-        r = np.sqrt(1.5)
-        theta = np.linspace(0, 2 * np.pi, 100)
-        x1, x2 = r * np.cos(theta), r * np.sin(theta)
-        ax_phase.plot(x1, x2, linestyle='dotted', color='black')
         ax_phase.set_aspect('equal', 'box')
         ax_phase.set_xlabel('$x_1-x_2$ plane ($\cdots\, x^2 + y^2 = 1.5$)')
 
