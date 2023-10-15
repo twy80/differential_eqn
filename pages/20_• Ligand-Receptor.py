@@ -160,20 +160,14 @@ def run_ligand_receptor_interactions():
     fig, _, ax_phase = present_results(
         times, states, ["Receptor", "Ligand", "Complex"], plot_opt
     )
-    if fig:
-        if ax_phase:
-            ax_phase.set_xlabel("Receptor")
-            ax_phase.set_ylabel("Ligand")
-            ax_phase.set_zlabel("Complex")
-            ax_phase.set_xticks([0, 0.1, 0.2, 0.3, 0.4])
-            ax_phase.set_yticks([0, 0.01, 0.02, 0.03, 0.04])
-            ax_phase.set_zticks([0, 0.001, 0.002, 0.003, 0.004])
-        st.pyplot(fig)
-    else:
-        st.error(
-            f"An error occurred while obtaining the figure object: {e}",
-            icon="🚨"
-        )
+    if ax_phase:
+        ax_phase.set_xlabel("Receptor")
+        ax_phase.set_ylabel("Ligand")
+        ax_phase.set_zlabel("Complex")
+        ax_phase.set_xticks([0, 0.1, 0.2, 0.3, 0.4])
+        ax_phase.set_yticks([0, 0.01, 0.02, 0.03, 0.04])
+        ax_phase.set_zticks([0, 0.001, 0.002, 0.003, 0.004])
+    st.pyplot(fig)
 
 
 if __name__ == "__main__":

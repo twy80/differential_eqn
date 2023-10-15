@@ -148,20 +148,14 @@ def run_lorenz():
     fig, _, ax_phase = present_results(
         times, states, ["$x(t)$", "$y(t)$", "z(t)"], plot_opt
     )
-    if fig:
-        if ax_phase:
-            ax_phase.set_xlabel('$x$')
-            ax_phase.set_ylabel('$y$')
-            ax_phase.set_zlabel('$z$')
-            ax_phase.set_xticks([-20, -10, 0, 10, 20])
-            ax_phase.set_yticks([-20, -10, 0, 10, 20])
-            ax_phase.set_zticks([0, 10, 20, 30, 40])
-        st.pyplot(fig)
-    else:
-        st.error(
-            f"An error occurred while obtaining the figure object: {e}",
-            icon="🚨"
-        )
+    if ax_phase:
+        ax_phase.set_xlabel('$x$')
+        ax_phase.set_ylabel('$y$')
+        ax_phase.set_zlabel('$z$')
+        ax_phase.set_xticks([-20, -10, 0, 10, 20])
+        ax_phase.set_yticks([-20, -10, 0, 10, 20])
+        ax_phase.set_zticks([0, 10, 20, 30, 40])
+    st.pyplot(fig)
 
 
 if __name__ == "__main__":

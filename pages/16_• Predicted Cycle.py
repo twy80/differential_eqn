@@ -73,10 +73,14 @@ def run_predict_cycles():
     # Set the initial state
     left, right = st.columns(2)
     x1_init = left.number_input(
-        label="$x_1(0) \in [-5, 5]$", min_value=-5.0, max_value=5.0, value=0.2, step=0.01, format="%.2f"
+        label="$x_1(0)$",
+        min_value=None, max_value=None, value=1.0,
+        step=0.01, format="%.2f"
     )
     x2_init = right.number_input(
-        label="$x_2(0) \in [-5, 5]$", min_value=-5.0, max_value=5.0, value=-0.2, step=0.01, format="%.2f"
+        label="$x_2(0)$",
+        min_value=None, max_value=None, value=0.0,
+        step=0.01, format="%.2f"
     )
 
     st.write("")
@@ -152,20 +156,40 @@ def run_predict_cycles():
     fig, _, ax_phase = present_results(
         times, states, ["$x_1(t)$", "$x_2(t)$"], plot_opt
     )
-    if fig:
-        if ax_phase:
-            r = np.sqrt(1.5)
-            theta = np.linspace(0, 2 * np.pi, 100)
-            x1, x2 = r * np.cos(theta), r * np.sin(theta)
-            ax_phase.plot(x1, x2, linestyle='dotted', color='black')
-            ax_phase.set_aspect('equal', 'box')
-            ax_phase.set_xlabel('$x_1-x_2$ plane ($\cdots\, x^2 + y^2 = 1.5$)')
-        st.pyplot(fig)
-    else:
-        st.error(
-            f"An error occurred while obtaining the figure object: {e}",
-            icon="🚨"
-        )
+    if ax_phase:
+        x_min, x_max = ax_phase.get_xlim()[0], ax_phase.get_xlim()[1]
+        y_min, y_max = ax_phase.get_ylim()[0], ax_phase.get_ylim()[1]
+
+        intervals = [x_max - x_min, y_max - y_min]
+
+        min_number = min(intervals)
+        min_index = intervals.index(min_number)
+        max_index = 1 - min_index
+
+        no_data_min = 10
+        no_data_max = round(no_data_min * intervals[max_index] / min_number)
+
+        if min_index == 0:
+            no_data_x, no_data_y = no_data_min, no_data_max
+        else:
+            no_data_x, no_data_y = no_data_max, no_data_min
+
+        x_axis = np.linspace(x_min, x_max, no_data_x + 1)
+        y_axis = np.linspace(y_min, y_max, no_data_y + 1)
+        x_data, y_data = np.meshgrid(x_axis, y_axis)
+        x_prime, y_prime = limit_cycle_eqn(None, [x_data, y_data])
+        ax_phase.quiver(x_data, y_data, x_prime, y_prime, color='y')
+        # ax_phase.streamplot(x_data, y_data, x_prime, y_prime, color='y')
+
+        r = np.sqrt(1.5)
+        theta = np.linspace(0, 2 * np.pi, 100)
+        x1, x2 = r * np.cos(theta), r * np.sin(theta)
+        ax_phase.plot(x1, x2, linestyle='dotted', color='black')
+        ax_phase.set_aspect('equal', 'box')
+        ax_phase.set_xlabel('$x_1-x_2$ plane ($\cdots\, x^2 + y^2 = 1.5$)')
+
+    st.pyplot(fig)
+
 
 if __name__ == "__main__":
     run_predict_cycles()

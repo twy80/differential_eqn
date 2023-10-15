@@ -217,15 +217,35 @@ def run_rlc():
     fig, _, ax_phase = present_results(
         t_eval, states, ["$v_C(t)$", "$i(t)$"], plot_opt
     )
-    if fig:
-        if ax_phase:
-            ax_phase.set_xlabel('$v_C-i$ plane')
-        st.pyplot(fig)
-    else:
-        st.error(
-            f"An error occurred while obtaining the figure object: {e}",
-            icon="🚨"
-        )
+    if ax_phase:
+        x_min, x_max = ax_phase.get_xlim()[0], ax_phase.get_xlim()[1]
+        y_min, y_max = ax_phase.get_ylim()[0], ax_phase.get_ylim()[1]
+
+        intervals = [x_max - x_min, y_max - y_min]
+
+        min_number = min(intervals)
+        min_index = intervals.index(min_number)
+        max_index = 1 - min_index
+
+        no_data_min = 10
+        no_data_max = round(no_data_min * intervals[max_index] / min_number)
+
+        if min_index == 0:
+            no_data_x, no_data_y = no_data_min, no_data_max
+        else:
+            no_data_x, no_data_y = no_data_max, no_data_min
+
+        x_axis = np.linspace(x_min, x_max, no_data_x + 1)
+        y_axis = np.linspace(y_min, y_max, no_data_y + 1)
+        x_data, y_data = np.meshgrid(x_axis, y_axis)
+        x_prime, y_prime = rlc_eqn(None, [x_data, y_data], *args)
+        ax_phase.quiver(x_data, y_data, x_prime, y_prime, color='y')
+        # ax_phase.streamplot(x_data, y_data, x_prime, y_prime, color='y')
+
+        ax_phase.set_aspect('equal', 'box')
+        ax_phase.set_xlabel('$v_C-i$ plane')
+
+    st.pyplot(fig)
 
 
 if __name__ == "__main__":
