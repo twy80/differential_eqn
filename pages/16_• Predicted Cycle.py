@@ -74,13 +74,13 @@ def run_predict_cycles():
     left, right = st.columns(2)
     x1_init = left.number_input(
         label="$x_1(0)$",
-        min_value=None, max_value=None, value=1.0,
-        step=0.01, format="%.2f"
+        min_value=None, max_value=None, value=0.1,
+        step=0.1, format="%.f"
     )
     x2_init = right.number_input(
         label="$x_2(0)$",
-        min_value=None, max_value=None, value=0.0,
-        step=0.01, format="%.2f"
+        min_value=None, max_value=None, value=-0.1,
+        step=0.1, format="%.f"
     )
 
     st.write("")
@@ -198,23 +198,3 @@ def run_predict_cycles():
 
 if __name__ == "__main__":
     run_predict_cycles()
-
-
-# import streamlit as st
-# import matplotlib.pyplot as plt
-# import numpy as np
-
-
-# def run_something():
-#     st.write("## :blue[Under Construction]")
-
-#     st.write("")
-#     st.write(
-#         """
-#         #### Hopefully, something interesting will show up.
-#         """
-#     )
-
-
-# if __name__ == '__main__':
-#     run_something()
