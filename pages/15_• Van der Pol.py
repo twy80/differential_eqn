@@ -154,7 +154,7 @@ def run_van_der_pol():
         min_number = min(intervals)
         min_index = intervals.index(min_number)
         delta = (intervals[1 - min_index] - min_number) / 2
-        no_axis_data = 10
+        no_axis_data = 20
 
         # Prepare a square box for the phase portrait and vector fields
         if min_index == 0:
