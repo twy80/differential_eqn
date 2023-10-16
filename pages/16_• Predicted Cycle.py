@@ -75,12 +75,12 @@ def run_predict_cycles():
     x1_init = left.number_input(
         label="$x_1(0)$",
         min_value=None, max_value=None, value=0.1,
-        step=0.1, format="%.f"
+        step=0.1, format="%.1f"
     )
     x2_init = right.number_input(
         label="$x_2(0)$",
         min_value=None, max_value=None, value=-0.1,
-        step=0.1, format="%.f"
+        step=0.1, format="%.1f"
     )
 
     st.write("")
