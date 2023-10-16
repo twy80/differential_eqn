@@ -54,7 +54,7 @@ def run_van_der_pol():
     epsilon = st.slider(
         label="Setting the parameter $\\varepsilon$",
         min_value=epsilon_min, max_value=epsilon_max, value=epsilon_init,
-        step=0.1, format="%.1f",
+        step=0.01, format="%.2f",
         label_visibility="collapsed"
     )
 
