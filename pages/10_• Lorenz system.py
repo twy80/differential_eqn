@@ -69,7 +69,7 @@ def run_lorenz():
     rho = st.slider(
         label="Setting the parameter $\\rho$",
         min_value=rho_min, max_value=rho_max, value=rho_init,
-        step=0.1, format="%.2f",
+        step=0.01, format="%.2f",
         label_visibility="collapsed"
     )
     sigma, beta = 10, 8/3.0
