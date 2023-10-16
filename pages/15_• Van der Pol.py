@@ -63,12 +63,12 @@ def run_van_der_pol():
     x1_init = left.number_input(
         label="$x_1(0)$",
         min_value=None, max_value=None, value=1.0,
-        step=0.01, format="%.2f"
+        step=0.1, format="%.1f"
     )
     x2_init = right.number_input(
         label="$x_2(0)$",
         min_value=None, max_value=None, value=0.0,
-        step=0.01, format="%.2f"
+        step=0.1, format="%.1f"
     )
 
     st.write("")
