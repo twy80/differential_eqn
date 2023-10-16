@@ -63,7 +63,6 @@ def main():
           Streamlit framework. You can find more examples than just
           differential equations on
           [TWY's playground app](https://twy-playground.streamlit.app/).
-          (Some of the contents are overlapped.)
 
         #### What TWY does
     
