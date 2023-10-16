@@ -120,10 +120,10 @@ def run_rlc():
     # Set the initial state
     left, right = st.columns(2)
     vc_init = left.number_input(
-        label="$v_c(0)$", min_value=0.0, value=0.0, step=0.01, format="%.2f"
+        label="$v_c(0)$", min_value=0.0, value=0.0, step=0.1, format="%.1f"
     )
     i_init = right.number_input(
-        label="$i(0)$", min_value=0.0, value=0.0, step=0.01, format="%.2f"
+        label="$i(0)$", min_value=0.0, value=0.0, step=0.1, format="%.1f"
     )
 
     st.write("")
