@@ -2,6 +2,7 @@
 Presenting simulation results by T.-W. Yoon, Sep. 2023
 """
 
+
 def present_results(times, states, state_variable_names, plot_opt):
     """
     Generate plots of time responses and phase portraits based on the input data.
@@ -37,7 +38,7 @@ def present_results(times, states, state_variable_names, plot_opt):
     else:
         plot_opt = "Time responses"
 
-    plt.rcParams.update({'font.size': 7})
+    plt.rcParams.update({"font.size": 7})
     fig = plt.figure()
 
     # Prepare figures for the three plot options
@@ -56,7 +57,7 @@ def present_results(times, states, state_variable_names, plot_opt):
                     times, states[k], label=state_variable_names[k], alpha=0.8
                 )
             ax_time[0].legend(loc="best")
-            ax_time[0].set_xlabel('Time')
+            ax_time[0].set_xlabel("Time")
         ax_phase = None
 
     elif plot_opt == "Phase portrait":
@@ -73,7 +74,7 @@ def present_results(times, states, state_variable_names, plot_opt):
             ax_time[k].plot(times, states[k], color=colors[k], alpha=0.8)
             ax_time[k].set_ylabel(state_variable_names[k])
         ax_time[0].set_title("Time responses")
-        ax_time[-1].set_xlabel('Time')
+        ax_time[-1].set_xlabel("Time")
 
         if state_dim == 2:
             ax_phase = fig.add_subplot(state_dim, 2, (2, 2 * state_dim))
