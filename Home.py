@@ -72,6 +72,7 @@ def main():
     with st.expander("Lecture videos (in Korean)"):
         st.write(
         """
+        - [Demystifying Gen AI: LLMs and Agents](https://youtu.be/sTNG4LbFTTA), 2024
         - [Linear Algebra](https://youtube.com/playlist?list=PLIzv0-ErbDpwNdtK1OZ7Ew54s3tlXzX4Q),
           2019
         - [Complex Functions](https://youtube.com/playlist?list=PLIzv0-ErbDpyqRVlmnLsGeC_mLmu-dU-L),
