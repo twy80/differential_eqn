@@ -90,13 +90,12 @@ def run_rlc():
     )
 
     st.write(
-        """
+        r"""
         ##### System equation
         
-        >> ${\\displaystyle \\frac{dv_c}{dt} =\, \\frac{1}{C}\,i}$
+        ${\displaystyle \hspace{2em} \frac{dv_c}{dt} = \frac{1}{C}\,i}$
 
-        >> ${\\displaystyle \,\\frac{di}{dt} ~=\, -\\frac{1}{L}\,v_c -
-        >> \\frac{R}{L}\,i + \\frac{1}{L}\,v}$
+        ${\displaystyle \hspace{2em} \frac{di}{dt} = -\frac{1}{L}\,v_c - \frac{R}{L}\,i + \frac{1}{L}\,v}$
         """
     )
 

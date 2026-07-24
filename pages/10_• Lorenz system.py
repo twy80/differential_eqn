@@ -38,25 +38,25 @@ def run_lorenz():
 
     st.write("")
     st.write(
-        """
+        r"""
         ##### System equation
         
-        >> ${\\displaystyle \\frac{dx}{dt} = \sigma (y - x)}$
+        ${\displaystyle \hspace{2em} \frac{dx}{dt} = \sigma (y - x)}$
         
-        >> ${\\displaystyle \\frac{dy}{dt} = x(\\rho - z) - y}$
+        ${\displaystyle \hspace{2em} \frac{dy}{dt} = x(\rho - z) - y}$
         
-        >> ${\\displaystyle \\frac{dz}{dt} = xy - \\beta z}$
+        ${\displaystyle \hspace{2em} \frac{dz}{dt} = xy - \beta z}$
         
         Bifurcations occur in this system, and the responses can be
         chaotic. For discussion purposes, let's fix the initial
         state variables $(x(0), y(0), z(0))$ to $(1, 1, 1)$ and
-        the parameters $(\\beta, \sigma)$ to $(\\frac{8}{3}, 10)$.
-        If $\,0 < \\rho < 1$, the origin is the only equilibrium point,
-        and is stable. $\\rho = 1$ is where a (pitchfork) bifurcation
+        the parameters $(\beta, \sigma)$ to $(\frac{8}{3}, 10)$.
+        If $\,0 < \rho < 1$, the origin is the only equilibrium point,
+        and is stable. $\rho = 1$ is where a (pitchfork) bifurcation
         occurs, leading to two additional equlibria; the origin then
-        becomes unstable. Increasing $\\rho$ further will show
+        becomes unstable. Increasing $\rho$ further will show
         interesting behaviour, such as the existence of chaotic
-        solutions. To observe this for instance, set $\\rho$ to 28.
+        solutions. To observe this for instance, set $\rho$ to 28.
         """
     )
 

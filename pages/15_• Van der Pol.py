@@ -35,13 +35,12 @@ def run_van_der_pol():
 
     st.write("")
     st.write(
-        """
+        r"""
         ##### System equation
         
-        >> ${\\displaystyle \\frac{dx_1}{dt} = x_2}$
+        ${\displaystyle \hspace{2em} \frac{dx_1}{dt} = x_2}$
         
-        >> ${\\displaystyle \\frac{dx_2}{dt} = -x_1 + \\varepsilon
-           (1 - x_1^2)x_2}$
+        ${\displaystyle \hspace{2em} \frac{dx_2}{dt} = -x_1 + \varepsilon (1 - x_1^2)x_2}$
         """
     )
 

@@ -49,22 +49,18 @@ def run_ligand_receptor_interactions():
 
     st.write("")
     st.write(
-        """
+        r"""
         ##### System equation
         
-        >> ${\\displaystyle \\frac{dR}{dt}
-           \,\! = -k_{on} R L + k_{of\!f}C - k_t R + Q_R}$
+        ${\displaystyle \hspace{2em} \frac{dR}{dt} = -k_{on} R L + k_{of\!f}C - k_t R + Q_R}$
         
-        >> ${\\displaystyle \\frac{dL}{dt}
-           \,= -k_{on} R L + k_{of\!f}C + f}$
+        ${\displaystyle \hspace{2em} \frac{dL}{dt} = -k_{on} R L + k_{of\!f}C + f}$
         
-        >> ${\\displaystyle \\frac{dC}{dt}
-           \,\! = \,k_{on} R L - k_{of\!f}C - k_e C}$
+        ${\displaystyle \hspace{2em} \frac{dC}{dt} = \,k_{on} R L - k_{of\!f}C - k_e C}$
 
-        > where
+        where
 
-        >> ${\displaystyle \,Q_R = \left\{\\begin{array}{rc}0.0166, &
-           R \le R_{\max} \\\ 0, & R > R_{\max} \end{array}\\right.}$
+        ${\displaystyle \hspace{2em} \,Q_R = \left\{\begin{array}{rc}0.0166, & R \le R_{\max} \\ 0, & R > R_{\max} \end{array}\right.}$
         """
     )
 
