@@ -22,7 +22,7 @@ def limit_cycle_eqn(time, state):
 
 def run_predict_cycles():
     st.write(
-        """
+        r"""
         ## :blue[Predicting Limit Cycles]
 
         Given a nonlinear system, it is often challenging to predict
